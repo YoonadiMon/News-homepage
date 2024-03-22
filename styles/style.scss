@@ -14,6 +14,9 @@
   font-size: 14px;
   font-family: "Inter", sans-serif;
 }
+.stopScroll {
+  overflow: hidden;
+}
 body {
   height: calc(100vh - 12rem);
   margin: 6rem 10rem;
@@ -22,16 +25,19 @@ body {
     @include displayFlex(row);
     justify-content: space-between;
     margin-bottom: 2rem;
-
+    #mobileNav {
+      display: none;
+    }
     nav {
       width: fit-content;
-
       a {
         font-size: 1.3rem;
         color: $DarkGrayishBlue;
         text-decoration: none;
         margin-right: 1rem;
-
+        &:hover {
+          color: $SoftRed;
+        }
         &:last-of-type {
           margin-right: 0;
         }
@@ -88,6 +94,10 @@ body {
             color: $Off-white;
             letter-spacing: 0.3rem;
             font-weight: 700;
+            &:hover {
+              background-color: $VeryDarkBlue;
+              cursor: pointer;
+            }
           }
         }
 
@@ -140,8 +150,15 @@ body {
             margin-bottom: 0.8rem;
           }
           h2 {
-            font-size: 1.5rem;
             margin-bottom: 1rem;
+            a {
+              color: $VeryDarkBlue;
+              font-size: 1.2rem;
+              text-decoration: none;
+              &:hover {
+                color: $SoftRed;
+              }
+            }
           }
           p {
             color: $DarkGrayishBlue;
@@ -160,6 +177,133 @@ body {
     a {
       color: hsl(228, 45%, 44%); 
       font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  * {
+    font-size: 12px;
+  }
+  .cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: $VeryDarkBlue;
+    opacity: 0.5;
+  }
+  body {
+    main {
+      margin-bottom: 2rem;
+      #mainGrid {
+        grid-template-columns: 0.5fr 1fr 1fr;
+      }
+    }
+    footer {
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    width: calc(100vw - 2rem);
+    margin: 3rem 1rem;
+    header {
+      margin-bottom: 3rem;
+      #desktopNav {
+        display: none;
+      }
+      #mobileNav {
+        display: block;
+        img {
+          cursor: pointer;
+        }
+        #sidebarNav {
+          height: 100vh;
+          width: 250px;
+          background: $Off-white;
+          top: 0;
+          right: -250px;
+          position: absolute;
+          img {
+            position: absolute;
+            left: 75%;
+            top: 3rem;
+          }
+          #sidebarItems {
+            height: 80%;
+            @include displayFlex(column);
+            a {
+              padding-left: 4rem;
+              margin-bottom: 4rem;
+              width: 100%;
+              font-size: 2rem;
+              justify-self: left;
+              color: $VeryDarkBlue;
+            }
+          }
+            
+          }
+      }
+    }
+    main {
+      #mainGrid {
+        grid-template-columns: 100%;
+        grid-template-areas: 
+          "1"
+          "2"
+          "3"
+          "4";
+        #grid1 {
+          grid-area: 1;
+          img {
+            width: 100%;
+          }
+          #mobileImg {
+            display: block;
+            width: 100%;
+          }
+          #desktopImg {
+            display: none;
+          }
+        }
+  
+        #grid2 {
+          grid-area: 2;
+          font-size: 4rem;
+        }
+  
+        #grid3 {
+          grid-area: 3;
+          #grid3_row1 {
+            margin-bottom: 1rem;
+          }
+          #grid3_row2 {
+            margin-bottom: 2rem;
+            button {
+              width: 40%;
+              padding: 1rem;
+            }
+          }
+        }
+  
+        #grid4 {
+          grid-area: 4;
+        }
+      }
+
+      #mainDisplays {
+        grid-template-columns: 100%;
+        column-gap: 0;
+        row-gap: 1.5rem;
+        justify-content: left;
+        figure {
+          justify-content: left;
+        }
+      }
     }
   }
 }

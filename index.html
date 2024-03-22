@@ -14,15 +14,30 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div id="cover"></div>
   <header>
     <img src="assets/images/logo.svg" alt="logo">
-    <nav>
+    <nav id="desktopNav">
       <a href="">Home</a>
       <a href="">New</a>
       <a href="">Popular</a>
       <a href="">Trending</a>
       <a href="">Categories</a>
     </nav>
+    <nav id="mobileNav">
+      <img src="assets/images/icon-menu.svg" alt="icon-menu" onclick="showMenu()">
+      <div id="sidebarNav">
+        <img src="assets/images/icon-menu-close.svg" alt="icon-menu-close" onclick="hideMenu()">
+        <div id="sidebarItems">
+          <a href="">Home</a>
+          <a href="">New</a>
+          <a href="">Popular</a>
+          <a href="">Trending</a>
+          <a href="">Categories</a>
+        </div>
+      </div>
+    </nav>
+    
   </header>
 
   <main>
@@ -72,7 +87,9 @@
         <img src="assets/images/image-retro-pcs.jpg" alt="image-retro-pcs">
         <figcaption>
           <h1>01</h1>
-          <h2>Reviving Retro PCs</h2>
+          <h2>
+            <a href="">Reviving Retro PCs</a>
+          </h2>
           <p>What happens when old PCs are given modern upgrades?</p>
         </figcaption>
       </figure>
@@ -80,7 +97,9 @@
         <img src="assets/images/image-top-laptops.jpg" alt="image-top-laptops">
         <figcaption>
           <h1>02</h1>
-          <h2>Top 10 Laptops of 2022</h2>
+          <h2>
+            <a href="">Top 10 Laptops of 2022</a>
+          </h2>
           <p>Our best picks for various needs and budgets.</p>
         </figcaption>
       </figure>
@@ -88,7 +107,9 @@
         <img src="assets/images/image-gaming-growth.jpg" alt="image-gaming-growth">
         <figcaption>
           <h1>03</h1>
-          <h2>The Growth of Gaming</h2>
+          <h2>
+            <a href="">The Growth of Gaming</a>
+          </h2>
           <p>How the pandemic has sparked fresh opportunities.</p>
         </figcaption>
       </figure>
@@ -99,5 +120,7 @@
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://github.com/YoonadiMon">Yoonadi Mon</a>.
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
